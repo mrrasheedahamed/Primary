@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rasheed Ahamed | Profile</title>
+  <meta name="description" content="Connect with Rasheed Ahamed via phone, email, WhatsApp, and social media. QR code links included." />
+  <meta property="og:title" content="Rasheed Ahamed | Social QR Links" />
+  <meta property="og:image" content="profile.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Font Awesome CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <style>
+    :root {
+      /* Light mode colors */
+      --primary-color: #3b82f6; /* Blue */
+      --primary-hover: #2563eb;
+      --secondary-color: #10b981; /* Emerald */
+      --bg-light-gradient-start: #dbeafe;
+      --bg-light-gradient-end: #f0f9ff;
+      --card-bg-light: #ffffff;
+      --text-color-light: #1e293b; /* dark slate */
+      --link-bg-light: #e0f2fe;
+      --link-hover-light: #bae6fd;
+
+      /* Dark mode colors */
+      --bg-dark-gradient-start: #0f172a;
+      --bg-dark-gradient-end: #1e293b;
+      --card-bg-dark: #111827;
+      --text-color-dark: #f1f5f9;
+      --link-bg-dark: #1f2937;
+      --link-hover-dark: #374151;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+      background: linear-gradient(135deg, var(--bg-light-gradient-start), var(--bg-light-gradient-end));
+      color: var(--text-color-light);
+      transition: background 0.4s ease, color 0.4s ease;
+      padding: 20px;
+    }
+
+    body.dark {
+      background: linear-gradient(135deg, var(--bg-dark-gradient-start), var(--bg-dark-gradient-end));
+      color: var(--text-color-dark);
+    }
+
+    .card {
+      background: var(--card-bg-light);
+      padding: 40px 30px 50px;
+      border-radius: 18px;
+      box-shadow:
+        0 12px 20px rgba(59, 130, 246, 0.2),
+        0 8px 10px rgba(16, 185, 129, 0.15);
+      width: 100%;
+      max-width: 480px;
+      text-align: center;
+      transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    body.dark .card {
+      background: var(--card-bg-dark);
+      box-shadow:
+        0 12px 25px rgba(16, 185, 129, 0.5),
+        0 8px 12px rgba(59, 130, 246, 0.4);
+      color: var(--text-color-dark);
+    }
+
+    .profile-pic {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--primary-color);
+      margin-bottom: 25px;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    body.dark .profile-pic {
+      border-color: var(--secondary-color);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+    }
+
+    h1 {
+      margin-bottom: 32px;
+      font-weight: 700;
+      font-size: 2.25rem;
+      letter-spacing: 0.04em;
+      color: inherit;
+      user-select: none;
+    }
+
+    .profile-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 22px;
+      margin: 12px 0;
+      background-color: var(--link-bg-light);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--primary-color);
+      font-weight: 600;
+      font-size: 1.1rem;
+      position: relative;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 3px 6px rgba(59, 130, 246, 0.15);
+      cursor: pointer;
+    }
+
+    .profile-link:hover,
+    .profile-link:focus-visible {
+      background-color: var(--link-hover-light);
+      color: var(--primary-hover);
+      box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
+      outline: none;
+    }
+
+    body.dark .profile-link {
+      background-color: var(--link-bg-dark);
+      color: var(--secondary-color);
+      box-shadow: 0 3px 10px rgba(16, 185, 129, 0.2);
+    }
+
+    body.dark .profile-link:hover,
+    body.dark .profile-link:focus-visible {
+      background-color: var(--link-hover-dark);
+      color: #22c55e;
+      box-shadow: 0 8px 22px rgba(16, 185, 129, 0.5);
+    }
+
+    .profile-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      user-select: none;
+    }
+
+    /* Icons */
+    .profile-link i.icon {
+      font-size: 28px;
+      color: inherit;
+      transition: color 0.3s ease;
+      min-width: 32px;
+      text-align: center;
+    }
+
+    .profile-link:hover i.icon {
+      color: var(--secondary-color);
+    }
+
+    body.dark .profile-link i.icon {
+      color: var(--secondary-color);
+    }
+
+    /* QR code styling */
+    .qr {
+      position: absolute;
+      right: -130px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 110px;
+      height: 110px;
+      display: none;
+      background: var(--card-bg-light);
+      padding: 8px;
+      border-radius: 14px;
+      box-shadow:
+        0 6px 16px rgba(59, 130, 246, 0.25);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    body.dark .qr {
+      background: var(--card-bg-dark);
+      box-shadow:
+        0 6px 18px rgba(16, 185, 129, 0.5);
+    }
+
+    .profile-link:hover .qr,
+    .profile-link:focus-within .qr {
+      display: block;
+    }
+
+    @media (max-width: 640px) {
+      .qr {
+        right: auto;
+        left: 50%;
+        top: auto;
+        bottom: 120%;
+        transform: translateX(-50%);
+        width: 90px;
+        height: 90px;
+        padding: 6px;
+        border-radius: 12px;
+      }
+    }
+
+    /* Theme toggle button */
+    .theme-toggle {
+      margin-bottom: 28px;
+      padding: 12px 28px;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1rem;
+      box-shadow: 0 8px 18px rgba(59, 130, 246, 0.5);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+      width: fit-content;
+      min-width: 180px;
+      text-align: center;
+    }
+
+    .theme-toggle:hover,
+    .theme-toggle:focus-visible {
+      background: var(--primary-hover);
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.7);
+      outline: none;
+    }
+
+    body.dark .theme-toggle {
+      background: var(--secondary-color);
+      color: #121212;
+      box-shadow: 0 8px 18px rgba(16, 185, 129, 0.6);
+    }
+
+    body.dark .theme-toggle:hover,
+    body.dark .theme-toggle:focus-visible {
+      background: #22c55e;
+      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.8);
+      outline: none;
+    }
+
+    /* Focus outlines for accessibility */
+    .profile-link:focus-visible,
+    .theme-toggle:focus-visible {
+      outline: 3px solid var(--secondary-color);
+      outline-offset: 4px;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 400px) {
+      .profile-link {
+        font-size: 1rem;
+        padding: 12px 18px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" aria-label="Toggle light and dark theme">Theme: System Default</button>
+
+  <main class="card" role="main">
+    <img class="profile-pic" loading="lazy" src="profile.jpg" alt="Profile photo of Rasheed Ahamed" />
+    <h1>Rasheed Ahamed</h1>
+
+    <!-- Phone -->
+    <a class="profile-link" href="tel:+94779613133" aria-label="Call Rasheed Ahamed" tabindex="0">
+      <div class="profile-info">
+        <i class="fas fa-phone icon" aria-hidden="true"></i>
+        Mobile
+      </div>
+      <img loading="lazy" class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=tel:+94779613133" alt="QR Code for phone number" />
+    </a>
+
+    <!-- Email -->
+    <a class="profile-link" href="mailto:mrrasheedahamed@gmail.com" aria-label="Email Rasheed Ahamed" tabindex="0">
+      <div class="profile-info">
+        <i class="fas fa-envelope icon" aria-hidden="true"></i>
+        Mail
+      </div>
+      <img loading="lazy" class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=mailto:mrrasheedahamed@gmail.com" alt="QR Code for email" />
+    </a>
+
+    <!-- WhatsApp -->
+    <a
+      class="profile-link"
+      href="https://wa.me/94779613133"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="WhatsApp chat with Rasheed Ahamed"
+      tabindex="0"
+    >
+      <div class="profile-info">
+        <i class="fab fa-whatsapp icon" aria-hidden="true"></i>
+        WhatsApp Plus
+      </div>
+      <img loading="lazy" class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=https://wa.me/94779613133" alt="QR Code for WhatsApp" />
+    </a>
+
+    <!-- Telegram -->
+    <a
+      class="profile-link"
+      href="https://t.me/mrrasheedahamed"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Telegram profile of Rasheed Ahamed"
+      tabindex="0"
+    >
+      <div class="profile-info">
+        <i class="fab fa-telegram icon" aria-hidden="true"></i>
+        Telegram
+      </div>
+      <img loading="lazy" class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=https://t.me/mrrasheedahamed" alt="QR Code for Telegram" />
+    </a>
+
+    <!-- Facebook -->
+    <a
+      class="profile-link"
+      href="https://facebook.com/mrrasheedahamed"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Facebook profile of Rasheed Ahamed"
+      tabindex="0"
+    >
+      <div class="profile-info">
+        <i class="fab fa-facebook-f icon" aria-hidden="true"></i>
+        Facebook
+      </div>
+      <img loading="lazy" class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=https://facebook.com/mrrasheedahamed" alt="QR Code for Facebook" />
+    </a>
+
+    <!-- Instagram -->
+    <a
+      class="profile-link"
+      href="https://instagram.com/mrrasheedahamed"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram profile of Rasheed Ahamed"
+      tabindex="0"
+    >
+      <div class="profile-info">
+        <i class="fab fa-instagram icon" aria-hidden="true"></i>
+        Instagram
+      </div>
+      <img loading="lazy" class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=https://instagram.com/mrrasheedahamed" alt="QR Code for Instagram" />
+    </a>
+
+    <!-- LinkedIn -->
+    <a
+      class="profile-link"
+      href="https://linkedin.com/in/mrrasheedahamed"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="LinkedIn profile of Rasheed Ahamed"
+      tabindex="0"
+    >
+      <div class="profile-info">
+        <i class="fab fa-linkedin-in icon" aria-hidden="true"></i>
+        LinkedIn
+      </div>
+      <img loading="lazy" class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=https://linkedin.com/in/mrrasheedahamed" alt="QR Code for LinkedIn" />
+    </a>
+
+    <!-- Twitter X -->
+    <a
+      class="profile-link"
+      href="https://twitter.com/mrrasheedahamed"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Twitter profile of Rasheed Ahamed"
+      tabindex="0"
+    >
+      <div class="profile-info">
+        <i class="fab fa-twitter icon" aria-hidden="true"></i>
+        Twitter X
+      </div>
+      <img loading="lazy" class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=https://twitter.com/mrrasheedahamed" alt="QR Code for Twitter" />
+    </a>
+
+    <!-- TikTok -->
+    <a
+      class="profile-link"
+      href="https://tiktok.com/@mrrasheedahamed"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="TikTok profile of Rasheed Ahamed"
+      tabindex="0"
+    >
+      <div class="profile-info">
+        <i class="fab fa-tiktok icon" aria-hidden="true"></i>
+        TikTok
+      </div>
+      <img loading="lazy" class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=https://tiktok.com/@mrrasheedahamed" alt="QR Code for TikTok" />
+    </a>
+  </main>
+
+  <script>
+    // Theme toggling script
+    const toggleButton = document.querySelector('.theme-toggle');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    let savedTheme = localStorage.getItem('theme') || 'system';
+
+    function applyTheme(theme) {
+      document.body.classList.remove('dark');
+      if (theme === 'dark' || (theme === 'system' && prefersDark.matches)) {
+        document.body.classList.add('dark');
+      }
+    }
+
+    function updateButtonText(theme) {
+      toggleButton.textContent = 'Theme: ' + (theme.charAt(0).toUpperCase() + theme.slice(1));
+    }
+
+    toggleButton.addEventListener('click', () => {
+      if (savedTheme === 'light') {
+        savedTheme = 'dark';
+      } else if (savedTheme === 'dark') {
+        savedTheme = 'system';
+      } else {
+        savedTheme = 'light';
+      }
+      localStorage.setItem('theme', savedTheme);
+      applyTheme(savedTheme);
+      updateButtonText(savedTheme);
+    });
+
+    // Listen for system theme changes if 'system' is selected
+    prefersDark.addEventListener('change', () => {
+      if (savedTheme === 'system') {
+        applyTheme('system');
+      }
+    });
+
+    // Initialize theme on load
+    applyTheme(savedTheme);
+    updateButtonText(savedTheme);
+  </script>
+</body>
+</html>
